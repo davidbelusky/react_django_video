@@ -1,0 +1,42 @@
+.video-list {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 50px
+  
+
+  }
+
+.card {
+    height: 300px;
+    width: 310px;
+}
+
+.card-body{
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.card-title{
+    max-width: 250px;
+    width: 100%;
+    word-wrap: break-word;
+    text-align: center;
+    height: 51px;
+    width: 250px;
+}
+
+.video-cards{
+    padding-right: 20px
+}
+
+.pages{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
