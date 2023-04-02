@@ -8,7 +8,7 @@ class VideoFilter(django_filters.FilterSet):
             "id": ["exact"],
             "name": ["icontains"],
             'short_name': ['iexact'],
-            "source": ["iexact"],
+            "source": ["iexact", "in"],
             'features': [],
             "drm": []
         }

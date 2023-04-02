@@ -4,14 +4,15 @@ from rest_framework import status
 from .models import Video
 from .serializers import VideoSerializer
 from rest_framework.views import APIView
-import json
 from videos_app.helpers.convert_camelcase_to_underscore import convert_data_camelcase_to_underscore
 import logging
 import django_filters.rest_framework
 from rest_framework import filters
 from .filters import VideoFilter
+import urllib.request, json
 
-
+DATA_URL = "https://gist.githubusercontent.com/nextsux/f6e0327857c88caedd2dab13affb72c1/raw/04441487d90a0a05831835413f5942d58026d321/videos.json"
+DATA_PATH = "videos_app/data/data.json"
 logger = logging.getLogger(__name__)
 
 
@@ -44,9 +45,15 @@ class VideoView(generics.ListCreateAPIView):
 
 class UpdateVideosView(APIView):
     def post(self, _):
-        """ Get videos json data, rename camelcase data keys to underscore, update downloaded data to DB """
+        """ Get videos json data from URL, rename camelcase data keys to underscore, update downloaded data to DB """
         try:
-            with open("videos_app/data/data.json", encoding='utf-8') as data_file:
+            # Download json data from URL and save it to file
+            with urllib.request.urlopen(DATA_URL) as url:
+                data = json.load(url)
+            with open(DATA_PATH, "w") as outfile:
+                json.dump(data, outfile)
+            # Load updated data from downloaded file
+            with open(DATA_PATH, encoding='utf-8') as data_file:
                 data = json.loads(data_file.read())
                 converted_data = convert_data_camelcase_to_underscore(data)
                 for video_data in converted_data:
