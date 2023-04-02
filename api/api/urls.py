@@ -21,6 +21,5 @@ from videos_app.views import VideoView, UpdateVideosView
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("video/", VideoView.as_view(), name="video"),
-    path("update-videos/", UpdateVideosView.as_view(), name="update-videos" )
-
+    path("update-videos/", UpdateVideosView.as_view(), name="update-videos"),
 ]

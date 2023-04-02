@@ -2,16 +2,16 @@ import re
 
 
 def _camelcase_to_underscore(word: str) -> str:
-    _first_cap_re = re.compile('(.)([A-Z][a-z]+)')
-    _all_cap_re = re.compile('([a-z0-9])([A-Z])')
+    _first_cap_re = re.compile("(.)([A-Z][a-z]+)")
+    _all_cap_re = re.compile("([a-z0-9])([A-Z])")
 
-    s1 = _first_cap_re.sub(r'\1_\2', word)
-    return _all_cap_re.sub(r'\1_\2', s1).lower()
+    s1 = _first_cap_re.sub(r"\1_\2", word)
+    return _all_cap_re.sub(r"\1_\2", s1).lower()
 
 
 def convert_data_camelcase_to_underscore(data: list) -> list:
-    """ Convert data keys from camelcase to underscore, ex. shortName -> short_name, so it will match with
-        django model fields """
+    """Convert data keys from camelcase to underscore, ex. shortName -> short_name, so it will match with
+    django model fields"""
     new_data = []
     for item in data:
         new_item = {}
@@ -20,6 +20,7 @@ def convert_data_camelcase_to_underscore(data: list) -> list:
         new_data.append(new_item)
 
     return new_data
+
 
 #
 # daat = [
