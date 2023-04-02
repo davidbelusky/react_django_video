@@ -40,3 +40,19 @@
     justify-content: center;
     align-items: center;
 }
+
+.filters{
+    width: 610px;
+}
+
+.quality-and-feature-filter{
+    display: inline-block;
+    width: 40%;
+    float:left
+}
+
+.sources-filter{
+    display: inline-block;
+    width: 50%;
+ 
+  }

@@ -19,6 +19,8 @@ function SearchBar({ onSearch }) {
   };
 
   return (
+    <div>
+    <h3>Search: </h3>
     <form onSubmit={handleSearch}>
       <input
         type="text"
@@ -29,17 +31,10 @@ function SearchBar({ onSearch }) {
       />
       <button type="submit">Search</button>
     </form>
+    </div>
   );
 }
 
 
-
-// const SearchBar = () => {
-//   return (
-//     <div>
-//         <h1>s</h1>
-//     </div>
-//   );
-// };
 
 export default SearchBar;
