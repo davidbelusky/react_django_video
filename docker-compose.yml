@@ -33,5 +33,12 @@ services:
     depends_on:
       - api
 
+  cronjob:
+    build:
+      context: ./cronjob
+    depends_on:
+      - api
+
+
 volumes:
   pg_data:
