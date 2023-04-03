@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 
 
 class VideoView(generics.ListCreateAPIView):
-    queryset = Video.objects.all()
+    queryset = Video.objects.all().order_by('id')
     serializer_class = VideoSerializer
     filter_backends = [
         filters.SearchFilter,
