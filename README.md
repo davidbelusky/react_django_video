@@ -15,6 +15,10 @@ To run video app you need docker and docker-compose
 
 After all containers are running you can reach UI on `http://localhost:3000` and API on `http://localhost:8000`
 
+**Teardown**
+
+To teardown video app containers and clean DB run `docker-compose down --volumes`
+
 ### API Endpoints
 
 **POST**
