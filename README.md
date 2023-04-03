@@ -22,11 +22,11 @@ To teardown video app containers and clean DB run `docker-compose down --volumes
 ### API Endpoints
 
 **POST**
-`/api/update-videos/` - update videos in DB (download new videos data and update them to postgreSQL DB)
+`/update-videos/` - update videos in DB (download new videos data and update them to postgreSQL DB)
 
 
 **GET**
-`/api/video` - get all videos this endpoint also support parameters for `search`, `ordering` and there are also some filters parameters.
+`/video` - get all videos this endpoint also support parameters for `search`, `ordering` and there are also some filters parameters.
 
 **Filters:**
 
@@ -35,11 +35,11 @@ To teardown video app containers and clean DB run `docker-compose down --volumes
 
 **examples below**
 
-`api/video?ordering=name`,
+`/video?ordering=name`,
 
-`api/video?search=sintel&name__icontains=mp4`
+`/video?search=sintel&name__icontains=mp4`
 
-`api/video/?page=2`
+`/video/?page=2`
 
 
 
