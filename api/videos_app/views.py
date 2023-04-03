@@ -1,17 +1,18 @@
-from rest_framework import generics
+import json
+import logging
+import urllib.request
+
+import django_filters.rest_framework
+from rest_framework import filters, generics, status
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework.views import APIView
+
+from videos_app.helpers.convert_camelcase_to_underscore import \
+    convert_data_camelcase_to_underscore
+
+from .filters import VideoFilter
 from .models import Video
 from .serializers import VideoSerializer
-from rest_framework.views import APIView
-from videos_app.helpers.convert_camelcase_to_underscore import (
-    convert_data_camelcase_to_underscore,
-)
-import logging
-import django_filters.rest_framework
-from rest_framework import filters
-from .filters import VideoFilter
-import urllib.request, json
 
 DATA_URL = "https://gist.githubusercontent.com/nextsux/f6e0327857c88caedd2dab13affb72c1/raw/04441487d90a0a05831835413f5942d58026d321/videos.json"
 DATA_PATH = "videos_app/data/data.json"

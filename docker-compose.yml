@@ -1,0 +1,39 @@
+version: '3.7'
+
+services:
+  api:
+    build:
+      context: ./api
+    env_file:
+      - ./envs/.env_api
+    depends_on:
+      - db
+    volumes:
+      - ./api:/app
+    ports:
+      - 8000:8000
+    command:
+      bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+
+  db:
+    image: postgres:12.0-alpine
+    volumes:
+      - pg_data:/var/lib/postgresql/datas/
+    env_file:
+      - ./envs/.env_db
+    ports:
+      - 5432:5432
+
+  frontend:
+    restart: always
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - api
+
+volumes:
+  pg_data:
