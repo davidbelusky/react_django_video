@@ -8,8 +8,6 @@ services:
       - ./envs/.env_api
     depends_on:
       - db
-    volumes:
-      - ./api:/app
     ports:
       - 8000:8000
     command:
