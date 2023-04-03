@@ -1,0 +1,44 @@
+# Video app
+
+### Stack:
+**Backend** - Django rest framework
+
+**Frontend** - React
+
+**DB** - Postgresql
+
+### Requirements & instructions: 
+
+To run video app you need docker and docker-compose
+
+1. Run `docker-compose up --build`
+
+After all containers are running you can reach UI on `http://localhost:3000` and API on `http://localhost:8000`
+
+### API Endpoints
+
+**POST**
+`/api/update-videos/` - update videos in DB (download new videos data and update them to postgreSQL DB)
+
+
+**GET**
+`/api/video` - get all videos this endpoint also support parameters for `search`, `ordering` and there are also some filters parameters.
+
+**Filters:**
+
+`id`, `name`, `short_name`, `source`, `features`, `drm`
+
+
+**examples below**
+
+`api/video?ordering=name`,
+
+`api/video?search=sintel&name__icontains=mp4`
+
+`api/video/?page=2`
+
+
+
+### Cronjob
+
+There is cronjob running in docker as a container `cronjob` which run every 1 minute `api/update-videos`
